@@ -11,8 +11,8 @@
 #include "item.h"
 
 
-#define window_width 680
-#define window_height 480
+#define window_width 640
+#define window_height 960
 const int TOTAL = 300;
 class game
 {

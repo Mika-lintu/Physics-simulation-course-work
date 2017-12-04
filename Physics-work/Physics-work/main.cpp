@@ -7,6 +7,9 @@ int main(int argc, char *argv[])
 	const int fps = 60;
 	const int frameDelay = 1000 / fps;
 
+	float delta;
+	float deltaTimer;
+
 	Uint32 frameStart;
 	int frameTime;
 
@@ -19,7 +22,7 @@ int main(int argc, char *argv[])
 		Game->HandleEvents();
 		Game->Update();
 		Game->Render();
-
+		
 		frameTime = SDL_GetTicks() - frameStart;
 
 		if (frameDelay > frameTime)

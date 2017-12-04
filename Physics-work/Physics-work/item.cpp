@@ -4,13 +4,14 @@
 SDL_Rect r;
 SDL_Renderer *rend;
 
-item::item(SDL_Renderer *ren, int num, int size)
+item::item(SDL_Renderer *ren)
 {
 	yPos = 0;
-	xPos = num;
+	xPos = rand() % 1500 + (-200);
 	yVel = 4;
 	
 	rend = ren;
+	size = rand()%6+2;
 	r.w = size;
 	r.h = size;
 
@@ -24,7 +25,7 @@ void item::RenderItem()
 {
 		r.x = xPos;
 		r.y = yPos;
-		SDL_SetRenderDrawColor(rend, 78, 110, 216, 0);
+		SDL_SetRenderDrawColor(rend, 0, 100, 225, 0);
 		SDL_RenderFillRect(rend, &r);
 		SDL_SetRenderDrawColor(rend, 55, 55, 55, 0);
 }

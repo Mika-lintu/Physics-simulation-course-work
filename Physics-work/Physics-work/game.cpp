@@ -73,7 +73,7 @@ void game::Update()
 	std::cout << itemAmount << std::endl;
 	if (itemAmount != 300) {
 		
-		item_test[itemAmount] = new item(renderer, rand() % 1000 + (-2000), 2);
+		item_test[itemAmount] = new item(renderer);
 		itemAmount++;
 	}
 	for (int i = 0; i < itemAmount; i++)
@@ -82,7 +82,7 @@ void game::Update()
 		if (item_test[i]->yPos > 690) 
 		{
 			delete item_test[i];
-			item_test[i] = new item(renderer, rand() % 1000 + (-200),rand()%5+2);
+			item_test[i] = new item(renderer);
 		}
 	}
 }

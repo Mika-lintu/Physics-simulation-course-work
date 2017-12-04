@@ -4,23 +4,23 @@
 class item
 {
 public:
-	item(SDL_Renderer *ren, int num, int s);
+	item(SDL_Renderer *ren);
 	virtual ~item();
 	
-	
-	int mass;
-	int yVel;
-	int yPos;
+	double yVel;
+	double yPos;
+	double size;
+
 
 	void MoveItem(int wind);
 	void RenderItem();
 
 private:
 
-	int xPos;
+	double xPos;
+	double a = 9.81;
 	
 	SDL_Renderer *rend;
-	SDL_Rect r;	
-	int lifeTime;
+	SDL_Rect r;
 };
 
