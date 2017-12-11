@@ -23,6 +23,7 @@ public:
 
 	int itemAmount;
 	int wind;
+	float deltaTime;
 
 	void init(const char* title);
 
@@ -36,7 +37,7 @@ public:
 private:
 	bool running = false;
 
-	item* item_test[TOTAL];
+	item* itemArray[TOTAL];
 	item *item1;
 
 	SDL_Window *window;

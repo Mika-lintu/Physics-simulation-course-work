@@ -70,19 +70,19 @@ void game::HandleEvents()
 
 void game::Update() 
 {
-	std::cout << itemAmount << std::endl;
+	//std::cout << deltaTime << std::endl;
 	if (itemAmount != 300) {
 		
-		item_test[itemAmount] = new item(renderer);
+		itemArray[itemAmount] = new item(renderer);
 		itemAmount++;
 	}
 	for (int i = 0; i < itemAmount; i++)
 	{
-		item_test[i]->MoveItem(wind);
-		if (item_test[i]->yPos > 690) 
+		itemArray[i]->MoveItem(wind,deltaTime);
+		if (itemArray[i]->pos.y > 690) 
 		{
-			delete item_test[i];
-			item_test[i] = new item(renderer);
+			delete itemArray[i];
+			itemArray[i] = new item(renderer);
 		}
 	}
 }
@@ -93,7 +93,7 @@ void game::Render()
 	SDL_RenderClear(renderer);
 	for (int i = 0; i < itemAmount; i++)
 	{
-		item_test[i]->RenderItem();
+		itemArray[i]->RenderItem();
 	}
 	SDL_RenderPresent(renderer);
 }
