@@ -22,7 +22,7 @@ public:
 	virtual ~game();
 
 	int itemAmount;
-	int wind;
+	float wind;
 	float deltaTime;
 
 	void init(const char* title);

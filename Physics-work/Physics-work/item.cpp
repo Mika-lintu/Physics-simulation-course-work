@@ -15,8 +15,7 @@ item::item(SDL_Renderer *ren)
 	d = size;
 	r.w = d;
 	r.h = d;
-
-	force.y = g.y*m;
+	
 }
 
 item::~item()
@@ -41,13 +40,22 @@ void item::MoveItem(int wind, float dt)
 		float delta = 0.01;
 		dt = delta;
 
+		//glm::vec2 windVel = glm::vec2(1, 0);
+
 		area = 3.14*d*d / 4;
+		//dragForce = ((density*C*area)/2)*(vel.y*vel.y);
 
-		dragForce = ((density*C*area)/2)*(vel.y*vel.y);
+		float dragwind = ((density*C*area) / 2)*(wind*wind);
 
-		//glm::vec2 a = (((force - dragForce)/m) / dt);
+		
+
 		glm::vec2 a = g / dt;
-		vel = vel +dt*a;
+
+		//vel = vel +dt*a;
+
+		//a.y = dragForce / m;
+		a.x = dragwind / m;
+		vel = vel + dt*a;
 		pos = pos + dt*vel;
 	}    
 }

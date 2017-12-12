@@ -18,11 +18,13 @@ public:
 
 	float area;
 	float C = 0.47;
-	float density = 1;
+	float density = 1000;
 	float dragForce;
 	float df;
+	
 
-	glm::fvec2 force;
+	glm::vec2 windVel;
+
 
 	static glm::fvec2 g;
 
