@@ -43,11 +43,11 @@ void game::HandleEvents()
 	}
 	if (KeyState[SDL_SCANCODE_0])
 	{
-		wind = -1;
+		wind = 1;
 	}
 	if (KeyState[SDL_SCANCODE_1])
 	{
-		wind = -5.5;
+		wind = 5.5;
 	}
 	if (KeyState[SDL_SCANCODE_2])
 	{

@@ -41,13 +41,12 @@ void item::MoveItem(int wind, float dt)
 		dt = delta;
 
 		//glm::vec2 windVel = glm::vec2(1, 0);
-
+		float dragwind;
 		area = 3.14*d*d / 4;
 		//dragForce = ((density*C*area)/2)*(vel.y*vel.y);
+	
 
-		float dragwind = ((density*C*area) / 2)*(wind*wind);
-
-		
+		dragwind = ((density*C*area) / 2)*(wind*wind);
 
 		glm::vec2 a = g / dt;
 
@@ -56,9 +55,11 @@ void item::MoveItem(int wind, float dt)
 		//a.y = dragForce / m;
 		a.x = dragwind / m;
 		vel = vel + dt*a;
+		vel.x = a.x;
 		pos = pos + dt*vel;
 	}    
 }
+
 void item::Drag() 
 {
 	
