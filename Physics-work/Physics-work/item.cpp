@@ -32,32 +32,24 @@ void item::RenderItem()
 		SDL_SetRenderDrawColor(rend, 55, 55, 55, 0);
 }
 
-void item::MoveItem(int wind, float dt) 
+void item::MoveItem(int wind) 
 {
 
-	if (pos.y < 700)
-	{
-		float delta = 0.01;
-		dt = delta;
+		float dt = 0.01;
+		
 
-		//glm::vec2 windVel = glm::vec2(1, 0);
-		float dragwind;
+		glm::vec2 windVel = glm::vec2(wind, 0);
+		glm::vec2 dragwind = g-windVel;
 		area = 3.14*d*d / 4;
-		//dragForce = ((density*C*area)/2)*(vel.y*vel.y);
-	
 
-		dragwind = ((density*C*area) / 2)*(wind*wind);
+		
 
-		glm::vec2 a = g / dt;
+		glm::fvec2 dragForce = ((density*C*area) / 2)*(dragwind);
 
-		//vel = vel +dt*a;
+		glm::vec2 a = dragwind / dt;
 
-		//a.y = dragForce / m;
-		a.x = dragwind / m;
-		vel = vel + dt*a;
-		vel.x = a.x;
+		vel =  vel+ dt*a;
 		pos = pos + dt*vel;
-	}    
 }
 
 void item::Drag() 

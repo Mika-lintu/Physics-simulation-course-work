@@ -19,16 +19,13 @@ public:
 	float area;
 	float C = 0.47;
 	float density = 1000;
-	float dragForce;
 	float df;
 	
 
 	glm::vec2 windVel;
-
-
 	static glm::fvec2 g;
 
-	void MoveItem(int wind, float dt);
+	void MoveItem(int wind);
 	void RenderItem();
 
 private:
